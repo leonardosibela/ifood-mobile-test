@@ -3,8 +3,9 @@ package br.com.sibela.tweetmood.task
 interface UserSearchStask {
 
     interface View {
-        fun dysplayDefaultErrorMessage()
-        fun dysplayUserSearchForm()
+        fun displayDefaultErrorMessage()
+        fun displayUserSearchForm()
+        fun saveOAuthToke(token: String)
     }
 
     interface Presenter {
