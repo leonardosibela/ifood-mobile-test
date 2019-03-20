@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/container"
+        android:paddingEnd="@dimen/cardview_padding_end"
+        android:paddingStart="@dimen/cardview_padding_start"
+        android:paddingTop="@dimen/cardview_padding_top"
+        android:paddingBottom="@dimen/cardview_padding_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_marginStart="@dimen/cardview_element_margin_start"
+            android:text="May 8, 2019 - 12:46PM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cardview_element_margin_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tweetContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/cardview_element_margin_start"
+            android:text="No one is born hating another person because of the color of his skin or his background or his religion."
+            android:textAppearance="@style/PrimaryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timestamp"
+            android:layout_marginTop="@dimen/default_margin_between_elements"/>
+
+        <Button
+            android:id="@+id/analyzeFeeling"
+            android:text="Analyze feeling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BorderlessButton"
+            android:layout_marginTop="@dimen/default_margin_between_elements"
+            app:layout_constraintTop_toBottomOf="@+id/tweetContent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

@@ -22,4 +22,16 @@
         <item name="colorControlHighlight">@color/colorPrimary</item>
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
     </style>
+
+    <style name="BorderlessButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+
+    <!-- Text -->
+    <style name="PrimaryText" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:lineSpacingExtra">@dimen/primary_text_line_spacing_extra</item>
+    </style>
+
 </resources>
