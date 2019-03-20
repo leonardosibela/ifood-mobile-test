@@ -10,5 +10,5 @@ interface TwitterService {
 
     @GET("/$TWITTER_API_VERSION/statuses/user_timeline.json")
     fun statusesUserTimeline(@Query("screen_name") screenName: String,
-                             @Query("since_id") sinceId: Long? = null): Call<List<Tweet>>
+                             @Query("since_id") sinceId: Long? = null): Call<ArrayList<Tweet>>
 }
