@@ -1,6 +1,7 @@
 package br.com.sibela.tweetmood.retrofit.api
 
 import br.com.sibela.tweetmood.BuildConfig
+import br.com.sibela.tweetmood.constants.TwitterAPIConstants.Companion.TWITTER_BASE_URL
 import br.com.sibela.tweetmood.retrofit.interceptor.TwitterAuthInterceptor
 import br.com.sibela.tweetmood.retrofit.service.TwitterAuthService
 import okhttp3.OkHttpClient
@@ -10,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object TwitterAuthAPI {
 
     private var twitterAuthService: TwitterAuthService? = null
-    private val BASE_URL = "https://api.twitter.com/"
 
     fun getService(): TwitterAuthService {
         if (twitterAuthService != null) {
@@ -26,7 +26,7 @@ object TwitterAuthAPI {
         )
 
         val twitterClient = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(TWITTER_BASE_URL)
             .client(httpClient.build())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
