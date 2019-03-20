@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Image -->
+    <dimen name="logo_default_width">140dp</dimen>
+    <dimen name="logo_default_height">140dp</dimen>
+
+
+    <!-- General Elements -->
+    <dimen name="user_search_default_elements_width">328dp</dimen>
+
+
+    <!-- Button -->
+    <dimen name="button_default_height">60dp</dimen>
+
+
+    <!-- Input -->
+    <dimen name="searchview_default_height">48dp</dimen>
+</resources>

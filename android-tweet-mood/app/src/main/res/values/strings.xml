@@ -1,3 +1,10 @@
 <resources>
+    <!-- General Strings -->
     <string name="app_name">Tweet Mood</string>
+
+    <!-- Activity User Search -->
+    <string name="search_user_info">Type a username and click search to see what this user is up to on twitter</string>
+    <string name="search_user_user_not_found">User not found!</string>
+    <string name="search_user_button">Search</string>
+    <string name="content_description_twitter_logo">Twitter logo</string>
 </resources>

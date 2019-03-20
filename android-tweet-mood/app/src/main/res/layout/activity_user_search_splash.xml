@@ -5,8 +5,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:background="@color/colorPrimary"
     tools:context=".UserSearchActivity">
 
+    <ImageView
+        android:id="@+id/twitterLogo"
+        android:layout_width="@dimen/logo_default_width"
+        android:layout_height="@dimen/logo_default_height"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/twitter_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/content_description_twitter_logo"/>
 
+    <TextView
+        android:id="@+id/loginInfoMessage"
+        android:layout_width="@dimen/user_search_default_elements_width"
+        android:layout_height="35dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/userSearchView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@android:color/white"
+        android:text="@string/search_user_info"
+        android:gravity="center"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="parent"/>
+
+    <SearchView
+        android:id="@+id/userSearchView"
+        android:layout_width="@dimen/user_search_default_elements_width"
+        android:layout_height="@dimen/searchview_default_height"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginInfoMessage"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:focusable="true"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/userNotFoundMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/userSearchView"
+        app:layout_constraintTop_toBottomOf="@+id/userSearchView"
+        android:layout_marginTop="4dp"
+        android:text="@string/search_user_user_not_found"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="invisible"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="@dimen/user_search_default_elements_width"
+        android:layout_height="@dimen/button_default_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/search_user_button"
+        android:textColor="@android:color/white"
+        android:theme="@style/MainButton"
+        app:layout_constraintTop_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
