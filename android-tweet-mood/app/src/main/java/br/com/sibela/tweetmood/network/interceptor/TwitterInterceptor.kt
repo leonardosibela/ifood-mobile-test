@@ -1,4 +1,4 @@
-package br.com.sibela.tweetmood.retrofit.interceptor
+package br.com.sibela.tweetmood.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

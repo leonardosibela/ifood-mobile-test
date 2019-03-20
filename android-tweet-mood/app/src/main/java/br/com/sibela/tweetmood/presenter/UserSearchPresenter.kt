@@ -2,8 +2,8 @@ package br.com.sibela.tweetmood.presenter
 
 import br.com.sibela.tweetmood.model.OAuthBearerToken
 import br.com.sibela.tweetmood.model.Tweet
-import br.com.sibela.tweetmood.retrofit.api.TwitterAPI
-import br.com.sibela.tweetmood.retrofit.api.TwitterAuthAPI
+import br.com.sibela.tweetmood.network.api.TwitterAPI
+import br.com.sibela.tweetmood.network.api.TwitterAuthAPI
 import br.com.sibela.tweetmood.task.UserSearchStask
 import retrofit2.Call
 import retrofit2.Callback

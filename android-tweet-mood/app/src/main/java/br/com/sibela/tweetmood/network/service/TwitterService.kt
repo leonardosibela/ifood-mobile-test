@@ -1,4 +1,4 @@
-package br.com.sibela.tweetmood.retrofit.service
+package br.com.sibela.tweetmood.network.service
 
 import br.com.sibela.tweetmood.constants.TwitterAPIConstants.Companion.TWITTER_API_VERSION
 import br.com.sibela.tweetmood.model.Tweet

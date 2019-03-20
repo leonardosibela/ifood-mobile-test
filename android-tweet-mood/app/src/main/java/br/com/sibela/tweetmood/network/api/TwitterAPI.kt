@@ -1,8 +1,8 @@
-package br.com.sibela.tweetmood.retrofit.api
+package br.com.sibela.tweetmood.network.api
 
 import br.com.sibela.tweetmood.constants.TwitterAPIConstants.Companion.TWITTER_BASE_URL
-import br.com.sibela.tweetmood.retrofit.interceptor.TwitterInterceptor
-import br.com.sibela.tweetmood.retrofit.service.TwitterService
+import br.com.sibela.tweetmood.network.interceptor.TwitterInterceptor
+import br.com.sibela.tweetmood.network.service.TwitterService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
