@@ -1,5 +1,6 @@
 package br.com.sibela.tweetmood.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
@@ -87,7 +88,9 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
     }
 
     override fun displayUserTweets(tweets: ArrayList<Tweet>) {
-        TODO("not implemented")
+        val intent = Intent(this, TweetsListActivity::class.java)
+        intent.putParcelableArrayListExtra(TweetsListActivity.TWEETS_DATA_KEY, tweets)
+        startActivity(intent)
     }
 
     companion object {
