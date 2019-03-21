@@ -4,19 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.SearchView
-import android.widget.Toast
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.AVARAGE_ACTIVITY_TRANSITION_TIME
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_INTERMEDIATE_DURATION
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_STARTING_DELAY
+import br.com.sibela.tweetmood.extensions.displayNoInternetSnack
 import br.com.sibela.tweetmood.extensions.hideKeyboard
 import br.com.sibela.tweetmood.extensions.readStringFromSharedPreferences
 import br.com.sibela.tweetmood.extensions.writeOnSharedPreferences
@@ -52,14 +51,12 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
     override fun displayInternetErrorMessage() {
         stopLoading()
-        Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show()
+        displayNoInternetSnack()
+
     }
 
     override fun displayOAuthInternetErrorMessage() {
-        Snackbar.make(findViewById(android.R.id.content), R.string.no_internet_connection, Snackbar.LENGTH_INDEFINITE)
-            .setAction(R.string.retry_message) {
-                retrieveAccessTokenAndDisplayForm()
-            }.show()
+        displayNoInternetSnack { retrieveAccessTokenAndDisplayForm() }
     }
 
     override fun displayUserHasNoTweetsMessage() {
