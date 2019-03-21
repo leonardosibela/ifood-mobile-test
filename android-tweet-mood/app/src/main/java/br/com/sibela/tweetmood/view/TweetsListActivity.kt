@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.adapter.TweetsAdapter
 import br.com.sibela.tweetmood.constants.AnimationConstants
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.AVARAGE_ACTIVITY_TRANSITION_TIME
 import br.com.sibela.tweetmood.model.Tweet
 import kotlinx.android.synthetic.main.activity_tweets_list.*
 
@@ -42,7 +43,7 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
         startActivity(intent)
         Handler().postDelayed({
             tweetsAdapter.allowClick = true
-        }, 200)
+        }, AVARAGE_ACTIVITY_TRANSITION_TIME)
     }
 
     companion object {

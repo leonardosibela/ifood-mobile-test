@@ -3,6 +3,8 @@ package br.com.sibela.tweetmood.constants
 class AnimationConstants {
 
     companion object {
+        const val AVARAGE_ACTIVITY_TRANSITION_TIME = 500L
+
         const val INTERMEDIATE_ANIMATION_DURATION = 1000L
 
         const val CONSTRAINT_SET_INTERMEDIATE_DURATION = INTERMEDIATE_ANIMATION_DURATION

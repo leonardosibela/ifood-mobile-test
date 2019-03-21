@@ -12,6 +12,7 @@ import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.SearchView
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.AVARAGE_ACTIVITY_TRANSITION_TIME
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_INTERMEDIATE_DURATION
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_STARTING_DELAY
 import br.com.sibela.tweetmood.extensions.hideKeyboard
@@ -97,6 +98,12 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
         val intent = Intent(this, TweetsListActivity::class.java)
         intent.putParcelableArrayListExtra(TweetsListActivity.TWEETS_DATA_KEY, tweets)
         startActivity(intent)
+        Handler().postDelayed({
+            stopLoading()
+        }, AVARAGE_ACTIVITY_TRANSITION_TIME)
+    }
+
+    private fun stopLoading() {
         loadingSpinner.visibility = View.INVISIBLE
         loginButton.visibility = View.VISIBLE
     }
