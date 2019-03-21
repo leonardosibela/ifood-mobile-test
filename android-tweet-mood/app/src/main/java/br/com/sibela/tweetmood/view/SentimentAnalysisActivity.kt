@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateOvershootInterpolator
 import br.com.sibela.tweetmood.R
@@ -39,9 +40,24 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
     }
 
     override fun displaySentiment(sentiment: Sentiment) {
+        hideSpinner()
         displaySentimentMessage(sentiment)
         displaySentimentImage(sentiment.image)
         changeBackgroundColor(sentiment.color.toInt())
+    }
+
+    private fun hideSpinner() {
+        val fadeInAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out_animation)
+        fadeInAnimation.duration = INTERMEDIATE_ANIMATION_DURATION
+        fadeInAnimation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationRepeat(animation: Animation?) {}
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+                loadingSpinner.visibility = View.INVISIBLE
+            }
+        })
+
+        loadingSpinner.startAnimation(fadeInAnimation)
     }
 
     private fun displaySentimentMessage(sentiment: Sentiment) {

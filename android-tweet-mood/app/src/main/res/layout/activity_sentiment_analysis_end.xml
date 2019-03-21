@@ -20,6 +20,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"/>
 
+    <ProgressBar
+        android:id="@+id/loadingSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorAccent"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <TextView
         android:text="THAT'S HAPPY TWEET"
         android:textSize="24dp"
