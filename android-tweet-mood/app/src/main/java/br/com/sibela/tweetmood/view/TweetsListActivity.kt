@@ -1,5 +1,6 @@
 package br.com.sibela.tweetmood.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -36,7 +37,9 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
     }
 
     override fun displayFeeling(tweet: Tweet) {
-        TODO("not implemented")
+        val intent = Intent(this, SentimentAnalysisActivity::class.java)
+        intent.putExtra(SentimentAnalysisActivity.TWEET_TEXT_DATA, tweet.text)
+        startActivity(intent)
     }
 
     companion object {

@@ -27,6 +27,13 @@
                 android:value=".view.UserSearchActivity"/>
         </activity>
 
+        <activity android:name=".view.SentimentAnalysisActivity"
+                  android:theme="@style/AppThemeFullScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.UserSearchActivity"/>
+        </activity>
+
     </application>
 
 </manifest>

@@ -12,4 +12,5 @@
     <string name="sentiment_happy">Happy</string>
     <string name="sentiment_sad">Sad</string>
     <string name="sentiment_neutral">Neutral</string>
+    <string name="sentiment_message">THAT\'S A %1$s TWEET!</string>
 </resources>
