@@ -18,6 +18,7 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tweets_list)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val tweets: ArrayList<Tweet> = intent.getParcelableArrayListExtra(TWEETS_DATA_KEY)
         Handler().postDelayed({
