@@ -1,6 +1,6 @@
 package br.com.sibela.tweetmood.network.service
 
-import br.com.sibela.tweetmood.constants.TwitterAPIConstants.Companion.TWITTER_API_VERSION
+import br.com.sibela.tweetmood.constants.APIConstants.Companion.TWITTER_API_VERSION
 import br.com.sibela.tweetmood.model.Tweet
 import retrofit2.Call
 import retrofit2.http.GET

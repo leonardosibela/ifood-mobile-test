@@ -7,4 +7,9 @@
     <string name="search_user_user_not_found">User not found!</string>
     <string name="search_user_button">Search</string>
     <string name="content_description_twitter_logo">Twitter logo</string>
+
+    <!-- Activity Sentiment Analysis -->
+    <string name="sentiment_happy">Happy</string>
+    <string name="sentiment_sad">Sad</string>
+    <string name="sentiment_neutral">Neutral</string>
 </resources>

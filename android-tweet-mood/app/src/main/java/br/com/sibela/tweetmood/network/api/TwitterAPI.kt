@@ -1,6 +1,6 @@
 package br.com.sibela.tweetmood.network.api
 
-import br.com.sibela.tweetmood.constants.TwitterAPIConstants.Companion.TWITTER_BASE_URL
+import br.com.sibela.tweetmood.constants.APIConstants.Companion.TWITTER_BASE_URL
 import br.com.sibela.tweetmood.network.interceptor.TwitterInterceptor
 import br.com.sibela.tweetmood.network.service.TwitterService
 import okhttp3.OkHttpClient
