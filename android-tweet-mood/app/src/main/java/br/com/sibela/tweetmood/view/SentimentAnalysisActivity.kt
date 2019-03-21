@@ -15,6 +15,11 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateOvershootInterpolator
 import br.com.sibela.tweetmood.R
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.INTERMEDIATE_ANIMATION_DURATION
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_BACKGROUND_COLOR_DELAY
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_IMAGE_DELAY
+import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_MESSAGE_DELAY
 import br.com.sibela.tweetmood.model.Sentiment
 import br.com.sibela.tweetmood.presenter.SentimentAnalysisPresenter
 import br.com.sibela.tweetmood.task.SentimentAnalysisTask
@@ -47,7 +52,7 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
             val fadeInAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in_animation)
             sentimentMessage.visibility = View.VISIBLE
             sentimentMessage.startAnimation(fadeInAnimation)
-        }, 2000)
+        }, SENTIMENT_MESSAGE_DELAY)
     }
 
     private fun displaySentimentImage(@DrawableRes image: Int) {
@@ -56,9 +61,10 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
         val constraintSet = ConstraintSet()
         constraintSet.clone(this, R.layout.activity_sentiment_analysis_end)
         val transition = ChangeBounds()
-        transition.interpolator = AnticipateOvershootInterpolator(1.0f)
-        transition.duration = 1000
-        transition.startDelay = 2000
+        transition.interpolator =
+                AnticipateOvershootInterpolator(ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION)
+        transition.duration = INTERMEDIATE_ANIMATION_DURATION
+        transition.startDelay = SENTIMENT_IMAGE_DELAY
         TransitionManager.beginDelayedTransition(container, transition)
         constraintSet.applyTo(container)
     }
@@ -68,8 +74,8 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
             container, "backgroundColor", ArgbEvaluator(),
             ContextCompat.getColor(this, android.R.color.background_light), color
         )
-        colorFade.duration = 3500
-        colorFade.startDelay = 500
+        colorFade.duration = INTERMEDIATE_ANIMATION_DURATION
+        colorFade.startDelay = SENTIMENT_BACKGROUND_COLOR_DELAY
         colorFade.start()
     }
 
