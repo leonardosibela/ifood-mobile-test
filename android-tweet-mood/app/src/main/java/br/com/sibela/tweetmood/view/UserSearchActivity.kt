@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.SearchView
+import android.widget.Toast
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.AVARAGE_ACTIVITY_TRANSITION_TIME
@@ -48,7 +50,38 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
         }
     }
 
+    override fun displayInternetErrorMessage() {
+        stopLoading()
+        Toast.makeText(this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show()
+    }
+
+    override fun displayOAuthInternetErrorMessage() {
+        Snackbar.make(findViewById(android.R.id.content), R.string.no_internet_connection, Snackbar.LENGTH_INDEFINITE)
+            .setAction(R.string.retry_message) {
+                retrieveAccessTokenAndDisplayForm()
+            }.show()
+    }
+
+    override fun displayUserHasNoTweetsMessage() {
+        stopLoading()
+        errorMessage.setText(R.string.search_user_user_does_not_have_tweets)
+        errorMessage.visibility = View.VISIBLE
+    }
+
+    override fun displayUsersTweetsAreProtectedMessage(username: String) {
+        stopLoading()
+        errorMessage.text = getString(R.string.search_user_users_tweets_are_protected, username)
+        errorMessage.visibility = View.VISIBLE
+    }
+
+    override fun userNotFound() {
+        stopLoading()
+        errorMessage.setText(R.string.search_user_user_not_found)
+        errorMessage.visibility = View.VISIBLE
+    }
+
     override fun displayDefaultErrorMessage() {
+        stopLoading()
         TODO("not implemented")
     }
 
@@ -71,7 +104,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
         loginButton.setOnClickListener { onSearchUserClicked() }
         userSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                userNotFoundMessage.visibility = View.INVISIBLE
+                errorMessage.visibility = View.INVISIBLE
                 return true
             }
 

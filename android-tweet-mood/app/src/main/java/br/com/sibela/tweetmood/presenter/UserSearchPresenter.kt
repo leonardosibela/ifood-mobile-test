@@ -13,7 +13,7 @@ class UserSearchPresenter(val view: UserSearchStask.View) : UserSearchStask.Pres
     override fun getTwitterOAuthToken() {
         TwitterAuthAPI.getService().postCredentials().enqueue(object : Callback<OAuthBearerToken> {
             override fun onFailure(call: Call<OAuthBearerToken>, t: Throwable) {
-                view.displayDefaultErrorMessage()
+                view.displayOAuthInternetErrorMessage()
             }
 
             override fun onResponse(call: Call<OAuthBearerToken>, response: Response<OAuthBearerToken>) {
@@ -31,13 +31,22 @@ class UserSearchPresenter(val view: UserSearchStask.View) : UserSearchStask.Pres
     override fun fetchUsersTwitter(accessToken: String, username: String) {
         TwitterAPI.getService(accessToken).statusesUserTimeline(username).enqueue(object : Callback<ArrayList<Tweet>> {
             override fun onFailure(call: Call<ArrayList<Tweet>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                view.displayInternetErrorMessage()
             }
 
             override fun onResponse(call: Call<ArrayList<Tweet>>, response: Response<ArrayList<Tweet>>) {
                 if (response.isSuccessful) {
                     val tweets = response.body()!!
-                    view.displayUserTweets(tweets)
+                    if (tweets.isEmpty()) {
+                        view.displayUserHasNoTweetsMessage()
+                    } else {
+                        view.displayUserTweets(tweets)
+                    }
+                } else {
+                    when(response.code()) {
+                        401 -> view.displayUsersTweetsAreProtectedMessage(username)
+                        404 -> view.userNotFound()
+                    }
                 }
             }
         })

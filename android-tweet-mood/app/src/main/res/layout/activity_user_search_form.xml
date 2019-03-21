@@ -49,14 +49,14 @@
         android:layout_marginTop="16dp" app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
-        android:id="@+id/userNotFoundMessage"
+        android:id="@+id/errorMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/userSearchView"
         app:layout_constraintTop_toBottomOf="@+id/userSearchView"
         android:layout_marginTop="4dp"
         android:text="@string/search_user_user_not_found"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@color/errorMessageOverPrimary"
         android:visibility="invisible"
         android:gravity="center"/>
 

@@ -9,6 +9,11 @@ interface UserSearchStask {
         fun displayUserSearchForm()
         fun saveOAuthToke(token: String)
         fun displayUserTweets(tweets: ArrayList<Tweet>)
+        fun displayInternetErrorMessage()
+        fun displayUserHasNoTweetsMessage()
+        fun displayUsersTweetsAreProtectedMessage(username: String)
+        fun userNotFound()
+        fun displayOAuthInternetErrorMessage()
     }
 
     interface Presenter {
