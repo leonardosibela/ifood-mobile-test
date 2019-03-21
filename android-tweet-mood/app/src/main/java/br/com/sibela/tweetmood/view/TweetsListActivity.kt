@@ -20,7 +20,9 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tweets_list)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        val username = intent.getStringExtra(USERNAME_DATA_KEY)
+        supportActionBar!!.title = "@$username"
 
         val tweets: ArrayList<Tweet> = intent.getParcelableArrayListExtra(TWEETS_DATA_KEY)
         Handler().postDelayed({
@@ -48,5 +50,6 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
 
     companion object {
         const val TWEETS_DATA_KEY = "tweets_data"
+        const val USERNAME_DATA_KEY = "username_data"
     }
 }

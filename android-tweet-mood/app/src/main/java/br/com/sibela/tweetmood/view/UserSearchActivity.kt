@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_user_search_splash.*
 class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
     private lateinit var presenter: UserSearchStask.Presenter
+    private var username: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +90,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
     }
 
     private fun fetchUsersTwitter(username: String) {
+        this.username = username
         loadingSpinner.visibility = View.VISIBLE
         loginButton.visibility = View.INVISIBLE
         presenter.fetchUsersTwitter(getAccessToken()!!, username)
@@ -97,6 +99,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
     override fun displayUserTweets(tweets: ArrayList<Tweet>) {
         val intent = Intent(this, TweetsListActivity::class.java)
         intent.putParcelableArrayListExtra(TweetsListActivity.TWEETS_DATA_KEY, tweets)
+        intent.putExtra(TweetsListActivity.USERNAME_DATA_KEY, username)
         startActivity(intent)
         Handler().postDelayed({
             stopLoading()

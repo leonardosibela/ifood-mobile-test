@@ -21,11 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.TweetsListActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.UserSearchActivity"/>
-        </activity>
+        <activity android:name=".view.TweetsListActivity"/>
 
         <activity android:name=".view.SentimentAnalysisActivity"
                   android:theme="@style/AppThemeFullScreen">
