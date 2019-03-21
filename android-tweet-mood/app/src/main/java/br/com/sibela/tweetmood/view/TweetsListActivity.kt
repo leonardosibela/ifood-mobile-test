@@ -40,6 +40,9 @@ class TweetsListActivity : AppCompatActivity(), TweetsAdapter.Callback {
         val intent = Intent(this, SentimentAnalysisActivity::class.java)
         intent.putExtra(SentimentAnalysisActivity.TWEET_TEXT_DATA, tweet.text)
         startActivity(intent)
+        Handler().postDelayed({
+            tweetsAdapter.allowClick = true
+        }, 200)
     }
 
     companion object {

@@ -9,10 +9,11 @@ import br.com.sibela.tweetmood.model.Tweet
 import kotlinx.android.synthetic.main.tweet_card.view.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class TweetsAdapter(val tweets: ArrayList<Tweet>, private val callback: TweetsAdapter.Callback) :
     RecyclerView.Adapter<TweetsAdapter.TweetsViewHolder>() {
+
+    var allowClick = true
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TweetsViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.tweet_card, viewGroup, false)
@@ -27,7 +28,12 @@ class TweetsAdapter(val tweets: ArrayList<Tweet>, private val callback: TweetsAd
         val tweet = tweets[position]
         holder.timestamp.text = SimpleDateFormat(DISPLAY_DATE_FORMAT, Locale.ENGLISH).format(tweet.date).capitalize()
         holder.tweetContent.text = tweet.text
-        holder.analyzeFeeling.setOnClickListener { callback.displayFeeling(tweet) }
+        holder.analyzeFeeling.setOnClickListener {
+            if (allowClick) {
+                allowClick = false
+                callback.displayFeeling(tweet)
+            }
+        }
     }
 
     class TweetsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
