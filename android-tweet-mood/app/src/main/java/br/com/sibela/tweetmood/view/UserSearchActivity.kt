@@ -75,7 +75,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
             override fun onQueryTextSubmit(query: String): Boolean {
                 hideKeyboard()
-                presenter.fetchUsersTwitter(getAccessToken()!!, query)
+                fetchUsersTwitter(query)
                 return true
             }
         })
@@ -84,13 +84,21 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
     private fun getAccessToken() = readStringFromSharedPreferences(TWITTER_ACCESS_TOKEN)
 
     private fun onSearchUserClicked() {
-        presenter.fetchUsersTwitter(getAccessToken()!!, userSearchView.query.toString())
+        fetchUsersTwitter(userSearchView.query.toString())
+    }
+
+    private fun fetchUsersTwitter(username: String) {
+        loadingSpinner.visibility = View.VISIBLE
+        loginButton.visibility = View.INVISIBLE
+        presenter.fetchUsersTwitter(getAccessToken()!!, username)
     }
 
     override fun displayUserTweets(tweets: ArrayList<Tweet>) {
         val intent = Intent(this, TweetsListActivity::class.java)
         intent.putParcelableArrayListExtra(TweetsListActivity.TWEETS_DATA_KEY, tweets)
         startActivity(intent)
+        loadingSpinner.visibility = View.INVISIBLE
+        loginButton.visibility = View.VISIBLE
     }
 
     companion object {

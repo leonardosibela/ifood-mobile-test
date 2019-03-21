@@ -74,4 +74,16 @@
         android:textColor="@android:color/white"
         android:theme="@style/MainButton"/>
 
+    <ProgressBar
+        android:id="@+id/loadingSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/loginButton"
+        app:layout_constraintTop_toTopOf="@+id/loginButton"/>
+
 </android.support.constraint.ConstraintLayout>
