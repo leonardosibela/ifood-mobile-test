@@ -66,6 +66,7 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
             sentimentMessage.text = getString(R.string.sentiment_message, sentimentText)
 
             val fadeInAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in_animation)
+            fadeInAnimation.duration = INTERMEDIATE_ANIMATION_DURATION
             sentimentMessage.visibility = View.VISIBLE
             sentimentMessage.startAnimation(fadeInAnimation)
         }, SENTIMENT_MESSAGE_DELAY)
