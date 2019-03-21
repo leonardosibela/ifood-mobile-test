@@ -2,7 +2,6 @@ package br.com.sibela.tweetmood.view
 
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.support.annotation.ColorInt
@@ -17,22 +16,24 @@ import android.view.animation.AnimationUtils
 import android.view.animation.AnticipateOvershootInterpolator
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.model.Sentiment
+import br.com.sibela.tweetmood.presenter.SentimentAnalysisPresenter
+import br.com.sibela.tweetmood.task.SentimentAnalysisTask
 import kotlinx.android.synthetic.main.activity_sentiment_analysis_start.*
 
-class SentimentAnalysisActivity : AppCompatActivity() {
+class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.View {
+
+    private lateinit var presenter: SentimentAnalysisTask.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sentiment_analysis_start)
+        presenter = SentimentAnalysisPresenter(this)
 
         val tweetText = intent.getStringExtra(TWEET_TEXT_DATA)
-
-        Handler().postDelayed({
-            displaySentiment(Sentiment.HAPPY)
-        }, 100)
+        presenter.analizeSentiment(tweetText)
     }
 
-    fun displaySentiment(sentiment: Sentiment) {
+    override fun displaySentiment(sentiment: Sentiment) {
         displaySentimentMessage(sentiment)
         displaySentimentImage(sentiment.image)
         changeBackgroundColor(sentiment.color.toInt())

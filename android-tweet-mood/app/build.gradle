@@ -18,6 +18,7 @@ android {
         debug {
             buildConfigField "String", "TWITTER_CONSUMER_KEY", twitterConsumerKey
             buildConfigField "String", "TWITTER_CONSUMER_SECRET_KEY", twitterConsumerSecretKey
+            buildConfigField "String", "NATURAL_LANGUAGE_API_KEY", naturalLanguageAPIKey
         }
 
         release {
