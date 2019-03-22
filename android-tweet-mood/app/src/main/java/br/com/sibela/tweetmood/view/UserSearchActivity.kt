@@ -1,5 +1,6 @@
 package br.com.sibela.tweetmood.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,6 +11,7 @@ import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.View
 import android.view.animation.AnticipateOvershootInterpolator
+import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
 import br.com.sibela.tweetmood.R
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE_OVERSHOOT_INTERPOLATOR_INTERMEDIATE_TENSION
@@ -100,6 +102,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
     private fun setupListeners() {
         loginButton.setOnClickListener { onSearchUserClicked() }
+
         userSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
                 errorMessage.visibility = View.INVISIBLE
@@ -112,6 +115,10 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
                 return true
             }
         })
+
+        userSearchView.setOnClickListener {
+            userSearchView.isIconified = false
+        }
     }
 
     private fun getAccessToken() = readStringFromSharedPreferences(TWITTER_ACCESS_TOKEN)

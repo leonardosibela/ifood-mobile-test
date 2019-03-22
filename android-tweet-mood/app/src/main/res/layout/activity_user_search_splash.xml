@@ -30,6 +30,8 @@
         android:textColor="@android:color/white"
         android:text="@string/search_user_info"
         android:gravity="center"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintEnd_toStartOf="parent"/>
 
