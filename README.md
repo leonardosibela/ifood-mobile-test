@@ -10,7 +10,8 @@ Android native app to analyze tweets sentiments from a given user.
   <img src="screenshots/screenshot_03.jpg" align="center" width=200>
   <img src="screenshots/screenshot_04.jpg" align="center" width=200>
   <img src="screenshots/screenshot_05.jpg" align="center" width=200>
-  <img src="screenshots/screenshot_06.jpg" align="center" width=200>  
+  <img src="screenshots/screenshot_06.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_07.jpg" align="center" width=200>  
 </p>
 
 
