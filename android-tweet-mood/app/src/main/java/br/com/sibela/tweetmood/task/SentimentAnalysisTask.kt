@@ -5,6 +5,7 @@ import br.com.sibela.tweetmood.model.Sentiment
 interface SentimentAnalysisTask {
     interface View {
         fun displaySentiment(sentiment: Sentiment)
+        fun displayInternetErrorMessage()
     }
 
     interface Presenter {

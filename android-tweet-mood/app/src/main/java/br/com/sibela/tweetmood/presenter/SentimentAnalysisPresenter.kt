@@ -16,7 +16,7 @@ class SentimentAnalysisPresenter(val view: SentimentAnalysisTask.View) : Sentime
             BuildConfig.NATURAL_LANGUAGE_API_KEY,
             SentimentDataRequest(SentimentDataRequest.Document(text))).enqueue(object : Callback<SentimentDataResponse> {
             override fun onFailure(call: Call<SentimentDataResponse>, t: Throwable) {
-                TODO("not implemented")
+                view.displayInternetErrorMessage()
             }
 
             override fun onResponse(call: Call<SentimentDataResponse>, response: Response<SentimentDataResponse>) {

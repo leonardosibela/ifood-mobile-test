@@ -21,6 +21,7 @@ import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.INTERMEDIA
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_BACKGROUND_COLOR_DELAY
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_IMAGE_DELAY
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.SENTIMENT_MESSAGE_DELAY
+import br.com.sibela.tweetmood.constants.ColorConstants.Companion.NO_INTERNET_BACKGROUND
 import br.com.sibela.tweetmood.model.Sentiment
 import br.com.sibela.tweetmood.presenter.SentimentAnalysisPresenter
 import br.com.sibela.tweetmood.task.SentimentAnalysisTask
@@ -46,6 +47,13 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
         changeBackgroundColor(sentiment.color.toInt())
     }
 
+    override fun displayInternetErrorMessage() {
+        hideSpinner()
+        displaySentimentImage(R.drawable.ic_no_iternet)
+        changeBackgroundColor(NO_INTERNET_BACKGROUND.toInt())
+        displayMessage(getString(R.string.no_internet_connection_short_message))
+    }
+
     private fun hideSpinner() {
         val fadeInAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_out_animation)
         fadeInAnimation.duration = INTERMEDIATE_ANIMATION_DURATION
@@ -61,10 +69,14 @@ class SentimentAnalysisActivity : AppCompatActivity(), SentimentAnalysisTask.Vie
     }
 
     private fun displaySentimentMessage(sentiment: Sentiment) {
-        Handler().postDelayed({
-            val sentimentText = getString(sentiment.text).toUpperCase()
-            sentimentMessage.text = getString(R.string.sentiment_message, sentimentText)
+        val sentimentText = getString(sentiment.text).toUpperCase()
+        val sentimentMessage = getString(R.string.sentiment_message, sentimentText)
+        displayMessage(sentimentMessage)
+    }
 
+    private fun displayMessage(message: String) {
+        Handler().postDelayed({
+            sentimentMessage.text = message
             val fadeInAnimation = AnimationUtils.loadAnimation(applicationContext, R.anim.fade_in_animation)
             fadeInAnimation.duration = INTERMEDIATE_ANIMATION_DURATION
             sentimentMessage.visibility = View.VISIBLE
