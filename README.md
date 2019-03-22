@@ -18,6 +18,7 @@ Android native app to analyze tweets sentiments from a given user.
 * Model-View-Presenter (MVP) for it's Presentation Layer
 * 100% developed using Kotlin
 * Design with a pleasant user interface based on Material Design principles and with beautiful yet modest animations
+* Using Fabric for Crash report and Beta Deploy
 
 ## Libraries used
 * Retrofit2
