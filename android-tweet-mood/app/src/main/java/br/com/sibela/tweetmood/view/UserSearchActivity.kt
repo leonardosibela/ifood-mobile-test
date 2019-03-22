@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.constraint.ConstraintSet
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.transition.ChangeBounds
 import android.transition.TransitionManager
@@ -15,10 +16,7 @@ import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.ANTICIPATE
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.AVARAGE_ACTIVITY_TRANSITION_TIME
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_INTERMEDIATE_DURATION
 import br.com.sibela.tweetmood.constants.AnimationConstants.Companion.CONSTRAINT_SET_STARTING_DELAY
-import br.com.sibela.tweetmood.extensions.displayNoInternetSnack
-import br.com.sibela.tweetmood.extensions.hideKeyboard
-import br.com.sibela.tweetmood.extensions.readStringFromSharedPreferences
-import br.com.sibela.tweetmood.extensions.writeOnSharedPreferences
+import br.com.sibela.tweetmood.extensions.*
 import br.com.sibela.tweetmood.model.Tweet
 import br.com.sibela.tweetmood.presenter.UserSearchPresenter
 import br.com.sibela.tweetmood.task.UserSearchStask
@@ -82,7 +80,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
     override fun displayDefaultErrorMessage() {
         stopLoading()
-        TODO("not implemented")
+        displaySnackbar(message = R.string.unexpected_error_message, duration = Snackbar.LENGTH_LONG)
     }
 
     override fun displayUserSearchForm() {

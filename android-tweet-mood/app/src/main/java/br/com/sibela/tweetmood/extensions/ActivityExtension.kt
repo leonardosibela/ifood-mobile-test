@@ -2,6 +2,7 @@ package br.com.sibela.tweetmood.extensions
 
 import android.app.Activity
 import android.content.Context.MODE_PRIVATE
+import android.support.annotation.StringRes
 import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -42,5 +43,13 @@ fun AppCompatActivity.displayNoInternetSnack(coordinator: CoordinatorLayout? = n
         coordinator ?: findViewById(android.R.id.content),
         R.string.no_internet_connection,
         Snackbar.LENGTH_LONG
+    ).show()
+}
+
+fun AppCompatActivity.displaySnackbar(coordinator: CoordinatorLayout? = null, @StringRes message: Int, duration: Int) {
+    Snackbar.make(
+        coordinator ?: findViewById(android.R.id.content),
+        message,
+        duration
     ).show()
 }

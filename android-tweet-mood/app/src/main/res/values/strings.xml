@@ -18,4 +18,7 @@
     <string name="sentiment_sad">Sad</string>
     <string name="sentiment_neutral">Neutral</string>
     <string name="sentiment_message">THAT\'S A %1$s TWEET!</string>
+    <string name="unexpected_error_message">An unexpected error occurred, but a development team is already being
+        assigned to solve it
+    </string>
 </resources>
