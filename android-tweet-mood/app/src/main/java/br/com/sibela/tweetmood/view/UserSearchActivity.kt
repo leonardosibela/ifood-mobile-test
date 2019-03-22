@@ -23,6 +23,8 @@ import br.com.sibela.tweetmood.model.Tweet
 import br.com.sibela.tweetmood.presenter.UserSearchPresenter
 import br.com.sibela.tweetmood.task.UserSearchStask
 import kotlinx.android.synthetic.main.activity_user_search_splash.*
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 
 class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
@@ -31,6 +33,7 @@ class UserSearchActivity : AppCompatActivity(), UserSearchStask.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fabric.with(this, Crashlytics())
         setContentView(R.layout.activity_user_search_splash)
         presenter = UserSearchPresenter(this)
 
