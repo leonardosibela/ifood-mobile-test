@@ -2,6 +2,9 @@
 
 Android native app to analyze tweets sentiments from a given user.
 
+**ATTENTION:** In order for the project to work you must add Twitter Consumer API keys and Google Cloud API Key. They must be on the gradle.properties with the exact same names mentioned on the build.gralde (module) file.
+
+
 ## Screenshots
 
 <p align="center">
