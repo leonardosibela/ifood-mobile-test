@@ -1,5 +1,39 @@
 # Tweet Mood
-Create an app that given an Twitter username it will list user's tweets. When I tap one of the tweets the app will visualy indicate if it's a happy, neutral or sad tweet.
+
+Android native app to analyze tweets sentiments from a given user.
+
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/screenshot_01.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_02.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_03.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_04.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_05.jpg" align="center" width=200>
+  <img src="screenshots/screenshot_06.jpg" align="center" width=200>  
+</p>
+
+
+## Characteristics
+* Model-View-Presenter (MVP) for it's Presentation Layer
+* 100% developed using Kotlin
+* Design with a pleasant user interface based on Material Design principles and with beautiful yet modest animations
+
+## Libraries used
+* Retrofit2
+* Support Library
+* Constraint Layout
+
+## Future features
+* Add UI tests with espresso and unit tests with roboeletric
+* Change the MVP Presentation Layer to MVVM (using some libraries from Android JetPack)
+* Add dependency injection such as koin, kodein or dagger2
+* Add a repository layer as a "single source of true"
+* Encrypt Twitter's API token before storing it (although it was stored with some protection, a user with a rooted phone would be able to find the token)
+
+
+
+# Base information to develop the app
 
 ## Business rules
 * Happy Tweet: We want a vibrant yellow color on screen with a 😃 emoji
